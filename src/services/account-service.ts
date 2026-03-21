@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { LoginCreds, RegisterCreds, User } from '../types/user';
 import { tap } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,7 @@ export class AccountService {
   private http = inject(HttpClient);
   CurrentUser  = signal<User | null>(null);
  
-  BaseUrl : string = "https://localhost:7130/api/"
-
+  private BaseUrl  = environment.apiUrl
 
    // register user and set is to current user for automatically logged in
   register(creds:RegisterCreds){

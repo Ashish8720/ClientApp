@@ -5,6 +5,7 @@ import { MemberDetailedList } from '../features/members/member-detailed-list/mem
 import { Lists } from '../features/lists/lists';
 import { Messages } from '../features/messages/messages';
 import { authGuard } from '../services/guards/auth-guard';
+import { NotFound } from '../shared/errors/not-found/not-found';
 
 export const routes: Routes = [
     {path : '' , component : Home},
@@ -20,5 +21,5 @@ export const routes: Routes = [
         ]
     },
     
-    {path : '**' , component:Home}
+    {path : '**' , component:NotFound}
 ];
