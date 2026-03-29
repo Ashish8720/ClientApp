@@ -18,6 +18,14 @@
         "@schematics/angular:interceptor": {
           "path": "src"
 
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true,
+          "path": "src"
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true,
+          "path": "src/shared/pipe"
         }
       },
       "root": "",

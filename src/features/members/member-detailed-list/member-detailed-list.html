@@ -1,1 +1,38 @@
-<p>member-detailed-list works!</p>
+<!--using if condition to hold the member variable and use in html-->
+@if(member(); as member){
+<div class="flex gap-2">
+    <div class="card bg-yellow-800 flex felx-col h-[85vh] w-1/4 mx-2">
+        <img src="{{member.imageUrl || 'null'}}" alt="image of member" class="w-40 h-40 rounded-full mx-auto mt-3 object-cover">
+        <div class="card-body">
+            <div class="flex flex-col items-center">
+                <div class="flex text-2xl text-white">
+                    {{member.displayName}} , {{member.dateOfBirth | age}}
+                </div>
+                <div class="text-sm">
+                    {{member.city}} , {{member.country}}
+                </div>
+            </div>
+            <div class="divider"></div>
+            <ul class="menu rounded-box w-full text-xl">
+                <li><a routerLink="profile" routerLinkActive="text-danger">Profile</a></li>
+                <li><a routerLink="photos" routerLinkActive="text-danger">Photos</a></li>
+                <li><a routerLink="messages" routerLinkActive="text-danger">Messages</a></li>
+            </ul>
+        </div>
+
+        <div class="card-actions justify-between gap-2 px-2 mb-3">
+             <button class="btn btn-sm btn-info flex-1">Go Back</button>
+             <button class="btn btn-sm btn-primary flex-1">Like user</button>
+        </div>
+    </div>
+
+    <div class="card bg-black w-3/4 p-2">
+       <h3 class="card-title text-3xl text-primary">{{title()}}</h3>
+       <div class="divider"></div>
+       <div>
+        <router-outlet></router-outlet>
+       </div>
+    </div>
+    
+</div>
+}
